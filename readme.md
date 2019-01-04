@@ -6,6 +6,13 @@ This was built with the intent of being used with a locally run Phantom VM and n
 
 Please do not use this with a production system or with production credentials.
 
+## Dependencies
+
+- rsync
+- scp
+
+Only tested on OSX so far
+
 ## Installation
 
 1. `go build`
