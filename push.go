@@ -18,9 +18,11 @@ func getPushCommand() cli.Command {
 		Usage:   "Push the app code to the Phantom server",
 		Action: func(c *cli.Context) error {
 			srcFolder, _ := os.Getwd()
-			destFolder := c.String("user") + "@" + c.String("host") + ":~/" + c.String("app")
+			destFolder := c.String("user") + "@" + c.String("host") + ":~/" + c.String("app") + "/."
 
-			cmd := exec.Command("rsync", "-av", srcFolder, destFolder)
+			fmt.Println("Running: rsync -av " + srcFolder + "/ " + destFolder)
+
+			cmd := exec.Command("rsync", "-av", srcFolder+"/", destFolder)
 
 			var o bytes.Buffer
 			cmd.Stdout = &o
